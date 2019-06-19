@@ -1,9 +1,7 @@
 % Classe theseINRS
 %
-%
-%
 %============================================
-% LISTE DES OPTIONS 
+% LISTE DES OPTIONS
 %------------------------------------------------------------
 %   phd         : \maketitle produit la page titre pour un doctorat
 %   msc         : \maketitle produit la page title pour une maitrise
@@ -254,8 +252,8 @@
     \@tempswafalse
   \fi
   \null\vfil
-  \secdef\@part\@spart}  
-  
+  \secdef\@part\@spart}
+
 %
 % Modification des commandes \tableofcontents, \listofigures et \listoftables :
 % remise de \parskip a zero pour ne pas avoir
@@ -310,7 +308,7 @@
   \setstretch{1.5}
   \normalsize\setlength{\parskip}{0.5\baselineskip}
   \newpage
-  \pagestyle{headings}  	
+  \pagestyle{headings}
   \pagenumbering{arabic}%
   \setcounter{chapter}{0}%
   \setcounter{section}{0}%
@@ -320,12 +318,12 @@
   \global\@topnum\z@
   \@afterindentfalse
   \secdef\@chapter\@schapter}}
-  
+
 \newcommand\pagesprelim{
   \singlespacing
   \pagenumbering{roman}%
-  \normalsize\setlength{\parskip}{0.5\baselineskip}}  
-  
+  \normalsize\setlength{\parskip}{0.5\baselineskip}}
+
 %
 %
 %===============
@@ -420,7 +418,7 @@
 \renewcommand\floatpagefraction{.9}
 \renewcommand\topfraction{.9}
 \renewcommand\bottomfraction{.9}
-\renewcommand\textfraction{.1}   
+\renewcommand\textfraction{.1}
 \setcounter{totalnumber}{50}
 \setcounter{topnumber}{50}
 \setcounter{bottomnumber}{50}
