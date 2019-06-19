@@ -165,9 +165,9 @@ _minted*
 *.mw
 
 # nomencl
-*.nlg
-*.nlo
-*.nls
+# *.nlg
+# *.nlo
+# *.nls
 
 # pax
 *.pax
