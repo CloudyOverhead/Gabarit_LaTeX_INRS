@@ -1,10 +1,5 @@
 % Classe theseINRS
 %
-%% Source : gabarit de thèse de l'Université Laval 2013 (theseUL1_2.cls)
-%%
-%% Modifié par : 
-%% Karine Guinard (INRS-ETE, 2014)
-%% karine.guinard@ete.inrs.ca
 %
 %
 %============================================
