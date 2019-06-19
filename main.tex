@@ -1,0 +1,107 @@
+%% Source : gabarit de thèse de l'Université Laval (memoire.tex)
+%%
+%% Modifié par :
+%% Karine Guinard (INRS-ETE, 2014)
+%% karine.guinard@ete.inrs.ca
+
+\documentclass[msc, noindex, hyperref, entetes, prelimtm, francais]{theseINRS} % Pour une thèse de doctorat, remplacer "msc" par "phd"
+\usepackage[utf8]{inputenc} % Pour pouvoir taper les accent directement et sans passer par \'
+\usepackage[T1]{fontenc} % Pour que les accents soient correctement traités dans le PDF
+\usepackage{lmodern} % Pour que les accents soient correctement traités dans le PDF
+\usepackage{amsmath} % Pour offrir plus de symboles mathématiques
+\usepackage{natbib} % Pour citer des références avec \cite et \citep
+\usepackage[letterpaper, margin=25mm]{geometry} % Pour la définition de la mise en forme du document
+\usepackage{graphicx} % Pour insérer des images avec la commande \includegraphics
+\usepackage[figuresright]{rotating} % Pour inclure des éléments en mode paysage en conservant les entêtes en mode portrait (environnement sideways)
+\usepackage{tabularx} % Pour rendre plus flexible la création de tableaux
+\usepackage{nomencl} % Pour générer une liste d'abréviations
+\usepackage[font={singlespacing,footnotesize,bf}]{caption} % Pour définir le style des légendes de figures
+\usepackage[font={singlespacing,footnotesize}]{subcaption} % Pour générer des sous-figures (subfig is deprecated)
+\usepackage{textcomp} % Pour que les symboles de degrés apparaissent plus beaux
+\usepackage{emptypage} % Pour enlever les numéros de page sur les pages blanches
+
+\raggedbottom % Pour uniformiser l'espacement vertical entre les éléments dans les pages
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\shorthandoff{:} % Ne pas ajouter automatiquement un espace avant un ":"
+\shorthandoff{;} % Ne pas ajouter automatiquement un espace avant un ";"
+\shorthandoff{?} % Ne pas ajouter automatiquement un espace avant un "?"
+\shorthandoff{!} % Ne pas ajouter automatiquement un espace avant un "!"
+
+\pagesprelim
+\PrenomNom{Prénom Nom}
+\titre{TITRE EN LETTRES MAJUSCULES} % en lettres majuscules
+%\soustitre{Sous-titre} % Si désiré, ajouter un sous-titre
+\programme{sciences de l'eau}
+\grade{\textit{Maître es Sciences}, M.Sc.}
+\jury{Examinateur externe &  Prénom Nom\\
+	& Affiliation \\[0.5cm]
+	Examinateur interne & Prénom Nom \\
+	& Affiliation \\[0.5cm]
+	Directeur de recherche & Prénom Nom \\
+	& Affiliation \\[0.5cm]}
+\annee{Année}
+
+\maketitle
+
+%\include{dedicace/dedicace} % Section facultative
+\include{remerciements/remerciements} % Section facultative (Remerciements ou Avant propos, pas les deux)
+%\include{avPropos/avPropos} % Section facultative (Remerciements ou Avant propos, pas les deux)
+\include{resume/resume}
+\include{abstract/abstract}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\contentsname} % Ajouter une ligne pour la table des matières dans la table des matières.
+\tableofcontents
+
+\cleardoublepage
+\phantomsection
+\renewcommand*\listfigurename{Liste des figures} % Afficher "Liste des figures" plutôt que "Table des figures".
+\addcontentsline{toc}{chapter}{\listfigurename} % Ajouter une ligne pour la table des figures dans la table des matières.
+\listoffigures % Omettre s'il n'y a pas de figure.
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename} % Ajouter une ligne pour la liste des tableaux dans la table des matières.
+\listoftables % Omettre s'il n'y a pas de tableau.
+
+\cleardoublepage
+\phantomsection
+\renewcommand{\nomname}{Liste des abréviations}
+\addcontentsline{toc}{chapter}{\nomname} % Ajouter une ligne pour la liste des abréviations dans la table des matières.
+\makenomenclature
+\setlength\nomlabelwidth{2cm} % Aligner les descriptions d'abréviations à 2 cm.
+\printnomenclature
+\cleardoublepage
+
+\corps
+\renewcommand{\tablename}{Tableau} % Afficher "Tableau" plutôt que "Table" dans le document.
+
+\part{Synthèse} % Omettre si thèse/mémoire traditionnel, conserver uniquement les chapitres
+\include{chap1/chap1}
+\include{chap2/chap2}
+\include{chap3/chap3}
+
+% Omettre si thèse/mémoire traditionnel
+\part{Articles}
+\renewcommand{\chaptername}{Article} % Afficher "Article" plutôt que "Chapitre".
+\setcounter{chapter}{0} % Recommencer la numérotation des chapitres.
+\include{article1/article1}
+
+\singlespacing
+\cleardoublepage
+\phantomsection
+\renewcommand{\bibname}{Références} % Afficher "Références" plutôt que "Bibliographie".
+\addcontentsline{toc}{chapter}{\bibname} % Ajouter une ligne pour la bibliographie dans la table des matières.
+\bibliographystyle{bibliostyleINRS} % Utiliser le style bibliographique de l'INRS.
+\bibliography{biblio/biblio} % Générer la bibliographie avec Bibtex (fichier biblio.bib).
+%\include{biblio/biblio} % Inclure une bibliographie écrite manuellement.
+
+% Si désiré, ajouter des annexes.
+\appendix
+\include{annexeA/annexeA}
+
+\end{document}
