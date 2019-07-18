@@ -325,10 +325,11 @@
   \@afterindentfalse
   \secdef\@chapter\@schapter}}
 
-\newcommand\pagesprelim{
+\newcommand\pagesprelim{%
   \singlespacing
   \pagenumbering{roman}%
-  \normalsize\setlength{\parskip}{0.5\baselineskip}}
+  \normalsize\setlength{\parskip}{0.5\baselineskip}
+}
 
 %
 %
@@ -338,12 +339,14 @@
 \newenvironment{dedicace}{%
   \newpage\thispagestyle{empty}
   \hfill\begin{minipage}{100mm}\vspace{100mm}\begin{flushright}\it}{%
-  \end{flushright}\end{minipage}\vfill}
+  \end{flushright}\end{minipage}\vfill
+}
 \newenvironment{resumechapitre}{%
   \begin{quote}
   \singlespacing
   \setlength{\parskip}{\baselineskip}}{%
-  \end{quote}}
+  \end{quote}
+}
 %
 %
 % Modification de l'environnement theindex pour :
