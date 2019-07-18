@@ -154,6 +154,7 @@
 \newcommand{\soustitre}[1]{\renewcommand{\@soustitre}{#1}}
 \newcommand{\programme}[1]{\newcommand{\@programme}{#1}}
 \newcommand{\grade}[1]{\newcommand{\@grade}{#1}}
+\newcommand{\mois}[1]{\newcommand{\@mois}{#1}}
 \newcommand{\annee}[1]{\newcommand{\@annee}{#1}}
 \newcommand{\jury}[1]{\newcommand{\@jury}{#1}}
 %
@@ -206,8 +207,8 @@
 	\end{tabular}
   \end{center}%
   \vspace*{8mm}%
-  %\copyright \ Droits r\'eserv\'s de \@PrenomNom, \@annee\\%
-  \copyright \@PrenomNom, \@annee\\%
+  \copyright \ Droits r\'eserv\'es de \@PrenomNom, \@mois \ \@annee\\%
+  % \copyright \ \@PrenomNom, \@mois \ \@annee\\%
   \pagebreak%
   \setcounter{footnote}{0}%
   \global\let\maketitle\relax
