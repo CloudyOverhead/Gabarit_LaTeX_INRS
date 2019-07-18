@@ -226,20 +226,12 @@
 % l'entete si l'option noentetes est en vigueur.
 \def\ps@headings{%
   \let\@oddfoot\@empty
-  \def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
-  \let\@evenfoot\@empty
-  \def\@evenhead{\thepage\hfil}%
+  \def\@oddhead\@empty%
+  \let\@evenfoot{\center\thepage}
+  \def\@evenhead\@empty%
   \let\@mkboth\markboth
-    \def\chaptermark##1{
-	  \if@entetes
-	     \markright{%
-	       \ifnum \c@secnumdepth >\m@ne
-	           \@chapapp\ \thechapter. \ %
-	       \fi
-	       ##1}
-	  \else
-	     \markright{}
-	  \fi}}
+}
+%
 %
 % Modification des commandes \tableofcontents, \listofigures et \listoftables :
 % remise de \parskip a zero pour ne pas avoir
