@@ -184,12 +184,12 @@
       Institut national de la recherche scientifique\\
       Centre Eau Terre Environnement\par%
     \vspace*{12mm}%
-    {\large\bf\@titre\par}%
+    {\Large\bf\@titre\par}%
     \vspace*{-4mm}%
     {\large\bf\@soustitre\par}%
     \vfil%
     \ Par\par
-    \@PrenomNom\par
+    \large\@PrenomNom\par
     \vfil%
     \if@msc
         {M\'emoire pr\'esent\'e}%
