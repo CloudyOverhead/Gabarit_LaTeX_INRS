@@ -241,26 +241,6 @@
 	     \markright{}
 	  \fi}}
 %
-%
-% Modification de la commande \part pour qu'il n'y ait
-% pas de numero de page.
-\renewcommand\part{%
-  \if@openright
-    \cleardoublepage
-  \else
-    \clearpage
-  \fi
-  \thispagestyle{empty}%
-  \if@twocolumn
-    \onecolumn
-    \@tempswatrue
-  \else
-    \@tempswafalse
-  \fi
-  \null\vfil
-  \secdef\@part\@spart}
-
-%
 % Modification des commandes \tableofcontents, \listofigures et \listoftables :
 % remise de \parskip a zero pour ne pas avoir
 % un interligne double entre les entrees.
