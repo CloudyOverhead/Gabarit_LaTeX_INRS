@@ -130,6 +130,8 @@
 \LoadClass[letterpaper,11pt,twoside,onecolumn,openright]{report}
 \RequirePackage{babel}[2001/03/01]
 \RequirePackage{color}[1999/02/16]
+\RequirePackage{fancyhdr}
+\RequirePackage{graphbox}
 \if@index
   \RequirePackage{makeidx}[2000/03/29]
   \makeindex
@@ -173,15 +175,19 @@
     \fi
   \else
   \fi
-  \thispagestyle{empty}
+  \fancypagestyle{logos}{
+    \fancyhf{}
+    \fancyhf[lh]{\vspace{-5mm}\includegraphics[align=c]{fig/logo_UQ}}
+    \fancyhf[rh]{\vspace{-5mm}\includegraphics[align=c]{fig/logo_INRS}}
+    \renewcommand*\headrulewidth{0pt}
+  }
+  \thispagestyle{logos}
   \setcounter{page}{1}
   \begin{center}%
     % Interligne et demi entre les lignes
     % Exception : la page titre, d'où
     \singlespacing
     \vspace*{2mm}
-    \ Universit\'e du Qu\'ebec\\
-      Institut national de la recherche scientifique\\
       Centre Eau Terre Environnement\par%
     \vspace*{12mm}%
     {\Large\bf\@titre\par}%
