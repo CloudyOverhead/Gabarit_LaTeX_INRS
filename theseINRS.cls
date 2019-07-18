@@ -12,7 +12,7 @@
 %   francais    : utilise le package babel avec l'option francais
 %   anglais     : utilise le package babel avec l'option english
 %                 (equivaut a \usepackage[francais,english]{babel},
-%                 meme si l'option francais est aussi passee a theseUL)
+%                 meme si l'option francais est aussi passee a theseINRS)
 %   final       : meme effet que pour la classe report
 %   draft       : meme effet que pour la classe report
 %   leqno       : meme effet que pour la classe report
