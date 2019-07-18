@@ -186,7 +186,6 @@
     \vspace*{12mm}%
     {\Large\bf\@titre\par}%
     \vspace*{-4mm}%
-    {\large\bf\@soustitre\par}%
     \vfil%
     \ Par\par
     \large\@PrenomNom\par
