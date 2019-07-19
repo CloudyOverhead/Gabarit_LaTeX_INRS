@@ -132,7 +132,8 @@
 \RequirePackage{color}[1999/02/16]
 \RequirePackage{fancyhdr}
 \RequirePackage{graphbox}
-\RequirePackage{titlesec}
+\RequirePackage[explicit]{titlesec}
+\RequirePackage[overload]{textcase}
 \if@index
   \RequirePackage{makeidx}[2000/03/29]
   \makeindex
@@ -245,7 +246,7 @@
   \else
     \@restonecolfalse
   \fi
-  \chapter*{\MakeUpperCase\contentsname}%
+  \chapter*{\contentsname}%
   \@starttoc{toc}%
   \if@restonecol\twocolumn\fi
   }
@@ -257,7 +258,7 @@
   \else
     \@restonecolfalse
   \fi
-  \chapter*{\MakeUpperCase\listfigurename}%
+  \chapter*{\listfigurename}%
   \singlespacing
   \@starttoc{lof}%
   \if@restonecol\twocolumn\fi
@@ -270,7 +271,7 @@
   \else
     \@restonecolfalse
   \fi
-  \chapter*{\MakeUpperCase\listtablename}%
+  \chapter*{\listtablename}%
   \singlespacing
   \@starttoc{lot}%
   \if@restonecol\twocolumn\fi
@@ -413,7 +414,7 @@
 % Format personnalisé pour les titres de pages liminaires.
 \titleformat{name=\chapter,numberless}
   [hang]
-  {\center\Large\bfseries\uppercase}
+  {\center\Large\bfseries\MakeUppercase{#1}}
   {}
   {0pt}
   {}
@@ -422,10 +423,10 @@
 % Format personnalisé pour les titres de chapitres ou de principales sections.
 \titleformat{\chapter}
   [hang]
-  {\Large\bfseries\uppercase}
+  {\Large\bfseries}
   {\thechapter}
-  {0pt}
-  {}
+  {1em}
+  {\MakeUppercase{#1}}
   [\titlerule]
 %
 %
@@ -434,17 +435,17 @@
   [hang]
   {\large\bfseries}
   {\thesection}
-  {0pt}
-  {}
+  {1em}
+  {#1}
 %
 %
 % Format personnalisé pour les titres de sous-sections.
 \titleformat{\subsection}
   [hang]
-  {\quad\bfseries}
+  {\hspace{1.25cm}\bfseries}
   {\thesubsection}
-  {0pt}
-  {}
+  {1em}
+  {#1}
 %
 %
 % Ajustement des espacements
