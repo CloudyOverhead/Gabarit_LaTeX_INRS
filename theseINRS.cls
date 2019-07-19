@@ -232,7 +232,16 @@
   \let\@evenfoot{\center\thepage}
   \def\@evenhead\@empty%
   \let\@mkboth\markboth
-}
+    \def\chaptermark##1{
+	  \if@entetes
+	     \markright{%
+	       \ifnum \c@secnumdepth >\m@ne
+	           \@chapapp\ \thechapter. \ %
+	       \fi
+	       ##1}
+	  \else
+	     \markright{}
+	  \fi}}
 %
 %
 % Modification des commandes \tableofcontents, \listofigures et \listoftables :
