@@ -177,8 +177,8 @@
   \fi
   \fancypagestyle{logos}{
     \fancyhf{}
-    \fancyhf[lh]{\vspace{-5mm}\includegraphics[align=c]{fig/logo_UQ}}
-    \fancyhf[rh]{\vspace{-5mm}\includegraphics[align=c]{fig/logo_INRS}}
+    \fancyhf[lh]{\raisebox{-5mm}[0pt][0pt]{\includegraphics[align=c]{fig/logo_UQ}}}
+    \fancyhf[rh]{\raisebox{-5mm}[0pt][0pt]{\includegraphics[align=c]{fig/logo_INRS}}}
     \renewcommand*\headrulewidth{0pt}
   }
   \thispagestyle{logos}
