@@ -244,7 +244,7 @@
   \else
     \@restonecolfalse
   \fi
-  \chapter*{\contentsname}%
+  \chapter*{\MakeUpperCase\contentsname}%
   \@starttoc{toc}%
   \if@restonecol\twocolumn\fi
   }
@@ -256,7 +256,7 @@
   \else
     \@restonecolfalse
   \fi
-  \chapter*{\listfigurename}%
+  \chapter*{\MakeUpperCase\listfigurename}%
   \singlespacing
   \@starttoc{lof}%
   \if@restonecol\twocolumn\fi
@@ -269,7 +269,7 @@
   \else
     \@restonecolfalse
   \fi
-  \chapter*{\listtablename}%
+  \chapter*{\MakeUpperCase\listtablename}%
   \singlespacing
   \@starttoc{lot}%
   \if@restonecol\twocolumn\fi
@@ -408,6 +408,48 @@
 % Éviter les lignes orphelines en fin de pages ou en début de page
 \widowpenalty10000
 \clubpenalty10000
+%
+%
+%===============================
+% Format des titres
+%-------------------------------
+%
+%
+% Format personnalisé pour les titres de pages liminaires.
+\titleformat{name=\chapter,numberless}
+  [hang]
+  {\center\Large\bfseries\uppercase}
+  {}
+  {0pt}
+  {}
+%
+%
+% Format personnalisé pour les titres de chapitres ou de principales sections.
+\titleformat{\chapter}
+  [hang]
+  {\Large\bfseries\uppercase}
+  {\thechapter}
+  {0pt}
+  {}
+  [\titlerule]
+%
+%
+% Format personnalisé pour les titres de sections.
+\titleformat{\section}
+  [hang]
+  {\large\bfseries}
+  {\thesection}
+  {0pt}
+  {}
+%
+%
+% Format personnalisé pour les titres de sous-sections.
+\titleformat{\subsection}
+  [hang]
+  {\quad\bfseries}
+  {\thesubsection}
+  {0pt}
+  {}
 %
 %
 % Fin du fichier `theseINRS.cls'.
