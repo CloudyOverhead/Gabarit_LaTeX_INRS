@@ -132,6 +132,7 @@
 \RequirePackage{color}[1999/02/16]
 \RequirePackage{fancyhdr}
 \RequirePackage{graphbox}
+\RequirePackage{titlesec}
 \if@index
   \RequirePackage{makeidx}[2000/03/29]
   \makeindex
@@ -185,7 +186,7 @@
   \setcounter{page}{1}
   \begin{center}%
     % Interligne et demi entre les lignes
-    % Exception : la page titre, d'où
+    % Exception : les pages liminaires, d'où
     \singlespacing
     \vspace*{2mm}
       Centre Eau Terre Environnement\par%
@@ -444,6 +445,15 @@
   {\thesubsection}
   {0pt}
   {}
+%
+%
+% Ajustement des espacements
+\setlength{\topskip}{0pt}
+\setlength{\topsep}{0pt}
+\titlespacing*{name=\chapter,numberless}{0pt}{0pt}{24pt}
+\titlespacing*{\chapter}{0pt}{0pt}{18pt}
+\titlespacing*{\section}{0pt}{18pt}{12pt}
+\titlespacing*{\subsection}{0pt}{18pt}{12pt}
 %
 %
 % Fin du fichier `theseINRS.cls'.
