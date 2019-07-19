@@ -293,18 +293,20 @@
   \setcounter{chapter}{0}%
   \setcounter{section}{0}%
   \setcounter{page}{1}
-  \renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
-  \thispagestyle{empty}
-  \global\@topnum\z@
-  \@afterindentfalse
-  \secdef\@chapter\@schapter}}
-
-\newcommand\pagesprelim{%
+  \renewcommand\chapter{
+    \if@openright\cleardoublepage\else\clearpage\fi
+    \thispagestyle{empty}
+    \global\@topnum\z@
+    \@afterindentfalse
+    \secdef\@chapter\@schapter
+  }
+}
+%
+%
+\newcommand\pagesprelim{
   \singlespacing
   \pagenumbering{roman}%
-  \normalsize\setlength{\parskip}{0.5\baselineskip}
-}
-
+  \normalsize\setlength{\parskip}{0.5\baselineskip}}
 %
 %
 %===============
