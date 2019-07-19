@@ -133,6 +133,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{graphbox}
 \RequirePackage[explicit]{titlesec}
+\RequirePackage{titletoc}
 \RequirePackage[overload]{textcase}
 \if@index
   \RequirePackage{makeidx}[2000/03/29]
@@ -478,9 +479,34 @@
 \titlespacing*{\subsubsection}{0pt}{18pt}{12pt}
 %
 %
+\setcounter{secnumdepth}{3}
+%
+%
+%===============================
+% Format de la table des matières
+%-------------------------------
+\titlecontents{chapter}
+  [0em]
+  {\vspace{6pt}}
+  {\hspace*{1.5em}\bfseries\uppercase\contentslabel[\thecontentslabel]{1.5em}}
+  {\bfseries\uppercase}
+  {\bfseries\titlerule*[.25em]{.}\contentspage}
+\titlecontents{section}
+  [1.25cm]
+  {\vspace{6pt}}
+  {\hspace*{2.25em}\scshape\contentslabel[\thecontentslabel]{2.25em}}
+  {\scshape}
+  {\titlerule*[.25em]{.}\contentspage}
+\titlecontents{subsection}
+  [1.75cm]
+  {\vspace{6pt}}
+  {\hspace*{3em}\itshape\contentslabel[\thecontentslabel]{3em}}
+  {\itshape}
+  {\titlerule*[.25em]{.}\contentspage}
+%
+%
 % Ne pas afficher les sous-sous-sections dans la table des matières.
 \setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{3}
 %
 %
 % Fin du fichier `theseINRS.cls'.
