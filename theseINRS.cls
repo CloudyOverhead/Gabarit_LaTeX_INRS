@@ -448,6 +448,15 @@
   {#1}
 %
 %
+% Format personnalisé pour les titres de sous-sous-sections.
+\titleformat{\subsubsection}
+  [hang]
+  {\hspace{1.75cm}\bfseries}
+  {\thesubsubsection}
+  {1em}
+  {#1}
+%
+%
 % Ajustement des espacements
 \setlength{\topskip}{0pt}
 \setlength{\topsep}{0pt}
@@ -455,6 +464,12 @@
 \titlespacing*{\chapter}{0pt}{0pt}{18pt}
 \titlespacing*{\section}{0pt}{18pt}{12pt}
 \titlespacing*{\subsection}{0pt}{18pt}{12pt}
+\titlespacing*{\subsubsection}{0pt}{18pt}{12pt}
+%
+%
+% Ne pas afficher les sous-sous-sections dans la table des matières.
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
 %
 %
 % Fin du fichier `theseINRS.cls'.
