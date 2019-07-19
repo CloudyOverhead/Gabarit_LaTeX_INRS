@@ -426,7 +426,7 @@
 % Format personnalisé pour les titres de pages liminaires.
 \titleformat{name=\chapter,numberless}
   [hang]
-  {\center\Large\bfseries\MakeUppercase{#1}}
+  {\center\Large\bfseries\MakeTextUppercase{#1}}
   {}
   {0pt}
   {}
@@ -438,7 +438,7 @@
   {\Large\bfseries}
   {\thechapter}
   {1em}
-  {\MakeUppercase{#1}}
+  {\MakeTextUppercase{#1}}
   [\titlerule]
 %
 %
