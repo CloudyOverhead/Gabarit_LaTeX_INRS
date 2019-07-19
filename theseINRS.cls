@@ -389,12 +389,6 @@
 % Interligne défini avec le package setspace (interligne 1.5)
 %
 %
-% Rédéfinir la numérotation pour inclure le numéro de la partie
-%\renewcommand{\thepart}{\Roman{part}}
-%\renewcommand{\theequation}{\thepart.\thesection.\arabic{equation}}
-%\renewcommand{\thefigure}{\thepart.\thesection.\arabic{figure}}
-%
-%
 % Diminuer l'espacement entre les éléments flottants (figures, tableaux) et le texte
 \renewcommand\floatpagefraction{.9}
 \renewcommand\topfraction{.9}
