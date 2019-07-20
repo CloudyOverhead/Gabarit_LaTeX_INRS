@@ -73,6 +73,9 @@
 \addcontentsline{toc}{chapter}{\nomname} % Ajouter une ligne pour la liste des abréviations dans la table des matières.
 \makenomenclature
 \setlength\nomlabelwidth{2cm} % Aligner les descriptions d'abréviations à 2 cm.
+% Pour que la liste des abréviations apparaisse, la commande
+% `makeindex main.nlo -s nomencl.ist -o main.nls` doit être exécutée dans la
+% chaîne de compilation. Un fichier `*.nls` doit normalement apparaître.
 \printnomenclature
 \cleardoublepage
 
