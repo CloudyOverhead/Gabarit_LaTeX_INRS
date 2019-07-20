@@ -418,11 +418,9 @@
 \clubpenalty10000
 %
 %
-%===============================
+%==================
 % Format des titres
-%-------------------------------
-%
-%
+%------------------
 % Format personnalisé pour les titres de pages liminaires.
 \titleformat{name=\chapter,numberless}
   [hang]
@@ -482,9 +480,9 @@
 \setcounter{secnumdepth}{3}
 %
 %
-%===============================
-% Format de la table des matières
-%-------------------------------
+%========================================
+% Format des listes et éléments numérotés
+%----------------------------------------
 \titlecontents{chapter}
   [0em]
   {\vspace{6pt}}
