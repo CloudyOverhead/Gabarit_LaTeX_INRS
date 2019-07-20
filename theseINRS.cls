@@ -57,6 +57,7 @@
 %   geometry   (standard)
 %   inputenc   (standard)
 %   fontenc    (standard)
+%   etoolbox   (standard)
 %   lmodern    (standard)
 %   graphicx   (standard)
 %   babel      (standard)
@@ -143,6 +144,7 @@
 \RequirePackage[showframe,letterpaper,margin=25mm]{geometry}
 \RequirePackage[utf8]{inputenc} % Pour pouvoir taper les accent directement et sans passer par \'
 \RequirePackage[T1]{fontenc} % Pour que les accents soient correctement traités dans le PDF
+\RequirePackage{etoolbox}
 \RequirePackage{lmodern} % Pour que les accents soient correctement traités dans le PDF
 \RequirePackage{graphicx} % Pour insérer des images avec la commande \includegraphics
 \RequirePackage{babel}[2001/03/01]
@@ -244,28 +246,6 @@
 }
 %
 %
-% Modification de la commande \ps@headings pour
-% que les entetes produites par \chapter soient en minuscules
-% et pour que seulement le numero de page apparaisse dans
-% l'entete si l'option noentetes est en vigueur.
-\def\ps@headings{%
-  \let\@oddfoot\@empty
-  \def\@oddhead\@empty%
-  \let\@evenfoot{\center\thepage}
-  \def\@evenhead\@empty%
-  \let\@mkboth\markboth
-    \def\chaptermark##1{
-	  \if@entetes
-	     \markright{%
-	       \ifnum \c@secnumdepth >\m@ne
-	           \@chapapp\ \thechapter. \ %
-	       \fi
-	       ##1}
-	  \else
-	     \markright{}
-	  \fi}}
-%
-%
 % Modification des commandes \tableofcontents, \listofigures et \listoftables :
 % remise de \parskip a zero pour ne pas avoir
 % un interligne double entre les entrees.
@@ -341,7 +321,7 @@
   \setstretch{1.5}
   \normalsize\setlength{\parskip}{0.5\baselineskip}
   \newpage
-  \pagestyle{headings}
+  \pagestyle{corps}
   \pagenumbering{arabic}%
   \setcounter{chapter}{0}%
   \setcounter{section}{0}%
@@ -435,6 +415,14 @@
 %
 %
 %
+%===================
+% Headers et footers
+%-------------------
+\fancypagestyle{corps}{%
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+}
+\patchcmd{\chapter}{\thispagestyle{plain}}{}{}{}
 %===============================
 % Definition du format des pages
 %-------------------------------
