@@ -455,10 +455,10 @@
 % Format personnalisé pour les titres de pages liminaires.
 \titleformat{name=\chapter,numberless}
   [hang]
-  {\center\Large\bfseries\MakeTextUppercase{#1}}
+  {\Large\bfseries\center}
   {}
   {0pt}
-  {}
+  {\MakeTextUppercase{#1}}
 %
 %
 % Format personnalisé pour les titres de chapitres ou de principales sections.
