@@ -490,22 +490,21 @@
 \titlecontents{chapter}
   [0em]
   {\vspace{6pt}}
-  {\hspace*{1.5em}\bfseries\uppercase\contentslabel[\thecontentslabel]{1.5em}}
-  {\bfseries\uppercase}
+  {\bfseries\thecontentslabel\hspace{1em}\MakeTextUppercase}
+  {\bfseries\MakeTextUppercase}
   {\bfseries\titlerule*[.25em]{.}\contentspage}
 \titlecontents{section}
   [1.25cm]
   {\vspace{6pt}}
-  {\hspace*{2.25em}\scshape\contentslabel[\thecontentslabel]{2.25em}}
+  {\hspace{1.25cm}\scshape\thecontentslabel\hspace{1em}}
   {\scshape}
   {\titlerule*[.25em]{.}\contentspage}
 \titlecontents{subsection}
   [1.75cm]
   {\vspace{6pt}}
-  {\hspace*{3em}\itshape\contentslabel[\thecontentslabel]{3em}}
+  {\hspace*{1.75cm}\itshape\thecontentslabel\hspace{1em}}
   {\itshape}
   {\titlerule*[.25em]{.}\contentspage}
-%
 %
 % Ne pas afficher les sous-sous-sections dans la table des matières.
 \setcounter{tocdepth}{2}
