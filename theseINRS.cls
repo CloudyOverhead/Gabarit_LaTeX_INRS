@@ -483,6 +483,10 @@
 %========================================
 % Format des listes et éléments numérotés
 %----------------------------------------
+% Afficher "Tableau" plutôt que "Table".
+\renewcommand{\tablename}{Tableau}
+%
+%
 \titlecontents{chapter}
   [0em]
   {\vspace{6pt}}
