@@ -298,6 +298,7 @@
   \@starttoc{lot}%
   \if@restonecol\twocolumn\fi
 }
+%
 \let\printnomenclatureprev\printnomenclature
 \renewcommand\printnomenclature{
   \cleardoublepage
@@ -307,6 +308,16 @@
   \makenomenclature
   \setlength\nomlabelwidth{2cm} % Aligner les descriptions d'abréviations à 2 cm.
   \printnomenclatureprev
+}
+%
+\let\bibliographyprev\bibliography
+\renewcommand\bibliography[1]{
+  \singlespacing
+  \cleardoublepage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{\bibname}
+  \bibliographystyle{bibliostyleINRS} % Utiliser le style bibliographique de l'INRS.
+  \bibliographyprev{#1}
 }
 %
 %
