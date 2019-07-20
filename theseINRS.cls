@@ -330,7 +330,8 @@
 \newcommand\corps{%
   \cleardoublepage
   \setstretch{1.5}
-  \normalsize\setlength{\parskip}{0.5\baselineskip}
+  \normalsize
+  \setlength{\parskip}{0.5\baselineskip}
   \newpage
   \pagestyle{corps}
   \pagenumbering{arabic}%
