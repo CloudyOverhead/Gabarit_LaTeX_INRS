@@ -509,4 +509,15 @@
 \setcounter{tocdepth}{2}
 %
 %
+%============
+% Typographie
+%------------
+ % Ne pas ajouter automatiquement un espace avant les caractères.
+\AtBeginDocument{%
+  \shorthandoff{;}
+  \shorthandoff{?}
+  \shorthandoff{!}
+}
+%
+%
 % Fin du fichier `theseINRS.cls'.
