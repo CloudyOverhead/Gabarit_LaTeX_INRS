@@ -193,7 +193,7 @@
     \vspace*{2mm}
       Centre Eau Terre Environnement\par%
     \vspace*{12mm}%
-    {\Large\bf\@titre\par}%
+    {\Large\bf\MakeTextUppercase{\@titre}\par}%
     \vspace*{-4mm}%
     \vfil%
     \ Par\par
