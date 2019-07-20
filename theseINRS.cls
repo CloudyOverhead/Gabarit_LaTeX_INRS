@@ -520,4 +520,9 @@
 }
 %
 %
+%=======
+% Autres
+%-------
+%
+%
 % Fin du fichier `theseINRS.cls'.
