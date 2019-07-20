@@ -484,7 +484,9 @@
 % Format des listes et éléments numérotés
 %----------------------------------------
 % Afficher "Tableau" plutôt que "Table".
-\renewcommand{\tablename}{Tableau}
+\newcommand{\tablenamedef}{Tableau}
+\newcommand{\figurenamedef}{Figure}
+\AtBeginDocument{\renewcommand{\tablename}{\tablenamedef}}
 %
 %
 \titlecontents{chapter}
@@ -508,6 +510,22 @@
 %
 % Ne pas afficher les sous-sous-sections dans la table des matières.
 \setcounter{tocdepth}{2}
+%
+%
+\titlecontents{figure}
+  [0em]
+  {\vspace{6pt}}
+  {\scshape\figurenamedef\ \thecontentslabel\hspace{1em}}
+  {\scshape}
+  {\titlerule*[.25em]{.}\contentspage}
+%
+%
+\titlecontents{table}
+  [0em]
+  {\vspace{6pt}}
+  {\scshape\tablenamedef\ \thecontentslabel\hspace{1em}}
+  {\scshape}
+  {\titlerule*[.25em]{.}\contentspage}
 %
 %
 %============
