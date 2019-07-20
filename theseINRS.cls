@@ -210,7 +210,7 @@
     \vfil%
     \textbf{Jury d'\'evaluation}\par%
     \vspace*{8mm}%
-    \begin{tabular}{p{6cm} p{7cm}}
+    \begin{tabular}{p{7.5cm} p{7.5cm}}
 	\@jury
 	\end{tabular}
   \end{center}%
