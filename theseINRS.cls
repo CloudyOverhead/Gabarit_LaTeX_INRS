@@ -483,7 +483,7 @@
 % Format personnalisé pour les titres de sous-sections.
 \titleformat{\subsection}
   [hang]
-  {\hspace{1.25cm}\bfseries}
+  {\bfseries}
   {\thesubsection}
   {1em}
   {#1}
@@ -492,7 +492,7 @@
 % Format personnalisé pour les titres de sous-sous-sections.
 \titleformat{\subsubsection}
   [hang]
-  {\hspace{1.75cm}\bfseries}
+  {\bfseries}
   {\thesubsubsection}
   {1em}
   {#1}
@@ -504,8 +504,8 @@
 \titlespacing*{name=\chapter,numberless}{0pt}{0pt}{24pt}
 \titlespacing*{\chapter}{0pt}{0pt}{18pt}
 \titlespacing*{\section}{0pt}{18pt}{12pt}
-\titlespacing*{\subsection}{0pt}{18pt}{12pt}
-\titlespacing*{\subsubsection}{0pt}{18pt}{12pt}
+\titlespacing*{\subsection}{1.25cm}{18pt}{12pt}
+\titlespacing*{\subsubsection}{1.75cm}{18pt}{12pt}
 %
 %
 \setcounter{secnumdepth}{3}
