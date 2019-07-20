@@ -54,11 +54,23 @@
 % Liste des packages requis
 %--------------------------
 %
+%   geometry   (standard)
+%   inputenc   (standard)
+%   fontenc    (standard)
+%   lmodern    (standard)
+%   graphicx   (standard)
 %   babel      (standard)
 %   color      (standard)
 %   hyperref   (standard)
 %   makeidx    (standard)
 %   report     (standard)
+%   fancyhdr   (standard)
+%   graphbox   (standard)
+%   titlesec   (standard)
+%   textcase   (standard)
+%   emptypage  (standard)
+%   nomencl    (standard)
+%   helvet     (standard)
 %
 % Ces packages utilisent d'autres fichiers.
 % Pour connaitre la liste des fichiers utilises, ajoutez la commande
@@ -128,6 +140,11 @@
 % Taille de la police de caractère normale = 11 points
 % Imprimer recto verso, chapitre sur une page impaire
 \LoadClass[letterpaper,11pt,twoside,onecolumn,openright]{report}
+\RequirePackage[showframe,letterpaper,margin=25mm]{geometry}
+\RequirePackage[utf8]{inputenc} % Pour pouvoir taper les accent directement et sans passer par \'
+\RequirePackage[T1]{fontenc} % Pour que les accents soient correctement traités dans le PDF
+\RequirePackage{lmodern} % Pour que les accents soient correctement traités dans le PDF
+\RequirePackage{graphicx} % Pour insérer des images avec la commande \includegraphics
 \RequirePackage{babel}[2001/03/01]
 \RequirePackage{color}[1999/02/16]
 \RequirePackage{fancyhdr}
@@ -135,6 +152,10 @@
 \RequirePackage[explicit]{titlesec}
 \RequirePackage{titletoc}
 \RequirePackage[overload]{textcase}
+\RequirePackage{emptypage} % Pour enlever les numéros de page sur les pages blanches
+\RequirePackage{nomencl} % Pour générer une liste d'abréviations}
+\RequirePackage{helvet} % Pour utiliser une police sans empattements.
+\renewcommand{\familydefault}{\sfdefault} % Pour que la police prenne effet.
 \if@index
   \RequirePackage{makeidx}[2000/03/29]
   \makeindex
