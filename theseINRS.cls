@@ -141,7 +141,7 @@
 % Taille de la police de caractère normale = 11 points
 % Imprimer recto verso, chapitre sur une page impaire
 \LoadClass[letterpaper,11pt,twoside,onecolumn,openright]{report}
-\RequirePackage[showframe,letterpaper,margin=25mm]{geometry}
+\RequirePackage[letterpaper,margin=25mm]{geometry}
 \RequirePackage[utf8]{inputenc} % Pour pouvoir taper les accent directement et sans passer par \'
 \RequirePackage[T1]{fontenc} % Pour que les accents soient correctement traités dans le PDF
 \RequirePackage{etoolbox}
