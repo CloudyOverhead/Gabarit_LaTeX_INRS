@@ -13,7 +13,6 @@
 
 \begin{document}
 
-\pagesprelim
 \PrenomNom{Prénom Nom}
 \titre{Titre} % 175 caractères
 \programme{sciences de l'eau}
@@ -34,44 +33,22 @@
 \mois{Mois}
 \annee{Année}
 
+\pagesprelim
 \maketitle
-
 %\include{dedicace/dedicace} % Section facultative
 \include{remerciements/remerciements} % Section facultative (Remerciements ou Avant propos, pas les deux)
 %\include{avPropos/avPropos} % Section facultative (Remerciements ou Avant propos, pas les deux)
 \include{resume/resume}
 \include{abstract/abstract}
-
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{\contentsname} % Ajouter une ligne pour la table des matières dans la table des matières.
 \tableofcontents
-
-\cleardoublepage
-\phantomsection
-\renewcommand*\listfigurename{Liste des figures} % Afficher "Liste des figures" plutôt que "Table des figures".
-\addcontentsline{toc}{chapter}{\listfigurename} % Ajouter une ligne pour la table des figures dans la table des matières.
 \listoffigures % Omettre s'il n'y a pas de figure.
-
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{\listtablename} % Ajouter une ligne pour la liste des tableaux dans la table des matières.
 \listoftables % Omettre s'il n'y a pas de tableau.
-
-\cleardoublepage
-\phantomsection
-\renewcommand{\nomname}{Liste des abréviations}
-\addcontentsline{toc}{chapter}{\nomname} % Ajouter une ligne pour la liste des abréviations dans la table des matières.
-\makenomenclature
-\setlength\nomlabelwidth{2cm} % Aligner les descriptions d'abréviations à 2 cm.
 % Pour que la liste des abréviations apparaisse, la commande
 % `makeindex main.nlo -s nomencl.ist -o main.nls` doit être exécutée dans la
 % chaîne de compilation. Un fichier `*.nls` doit normalement apparaître.
 \printnomenclature
-\cleardoublepage
 
 \corps
-
 \include{chap1/chap1}
 \include{chap2/chap2}
 \include{chap3/chap3}

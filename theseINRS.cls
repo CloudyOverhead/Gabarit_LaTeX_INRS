@@ -270,6 +270,9 @@
 % remise de \parskip a zero pour ne pas avoir
 % un interligne double entre les entrees.
 \renewcommand\tableofcontents{%
+  \cleardoublepage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{\contentsname}
   \singlespacing
   \setlength{\parskip}{0mm}%
   \if@twocolumn
@@ -280,8 +283,12 @@
   \chapter*{\contentsname}%
   \@starttoc{toc}%
   \if@restonecol\twocolumn\fi
-  }
-\renewcommand\listoffigures{%
+}
+%
+\renewcommand\listoffigures{%\cleardoublepage
+  \phantomsection
+  \renewcommand*\listfigurename{Liste des figures}
+  \addcontentsline{toc}{chapter}{\listfigurename}
   \singlespacing
   \setlength{\parskip}{0mm}%
   \if@twocolumn
@@ -293,8 +300,12 @@
   \singlespacing
   \@starttoc{lof}%
   \if@restonecol\twocolumn\fi
-  }
+}
+%
 \renewcommand\listoftables{%
+  \cleardoublepage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{\listtablename}
   \singlespacing
   \setlength{\parskip}{0mm}%
   \if@twocolumn
@@ -306,7 +317,17 @@
   \singlespacing
   \@starttoc{lot}%
   \if@restonecol\twocolumn\fi
-  }
+}
+\let\printnomenclatureprev\printnomenclature
+\renewcommand\printnomenclature{
+  \cleardoublepage
+  \phantomsection
+  \renewcommand{\nomname}{Liste des abréviations}
+  \addcontentsline{toc}{chapter}{\nomname}
+  \makenomenclature
+  \setlength\nomlabelwidth{2cm} % Aligner les descriptions d'abréviations à 2 cm.
+  \printnomenclatureprev
+}
 %
 %
 % Commande a utiliser apres les parties preliminaires qui sont
@@ -316,6 +337,7 @@
 % pas de numero de page pour la premiere page d'un chapitre
 % (normes). Affecte en meme temps \chapter*.
 \newcommand\corps{%
+  \cleardoublepage
   \setstretch{1.5}
   \normalsize\setlength{\parskip}{0.5\baselineskip}
   \newpage
