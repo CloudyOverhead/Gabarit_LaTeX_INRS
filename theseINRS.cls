@@ -414,7 +414,8 @@
 % Interligne défini avec le package setspace (interligne 1.5)
 %
 %
-% Diminuer l'espacement entre les éléments flottants (figures, tableaux) et le texte
+% Modifier l'espacement maximal avant qu'une figure n'occupe sa propre page et
+% la quantité de figures par pages.
 \renewcommand\floatpagefraction{.9}
 \renewcommand\topfraction{.9}
 \renewcommand\bottomfraction{.9}
