@@ -409,7 +409,13 @@
   \fancyhf{}
   \fancyfoot[C]{\thepage}
 }
-\patchcmd{\chapter}{\thispagestyle{plain}}{}{}{}
+%
+\patchcmd{\chapter}{
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \thispagestyle{plain}
+}{}{}{}
+%
+%
 %===============================
 % Definition du format des pages
 %-------------------------------
