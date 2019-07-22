@@ -326,9 +326,6 @@
 % Commande a utiliser apres les parties preliminaires qui sont
 % numerotees en chiffres romains. Reinitialise le compteur
 % de pages a 1 en numerotation arabe.
-% Modification de la commande \chapter pour qu'il n'y ait
-% pas de numero de page pour la premiere page d'un chapitre
-% (normes). Affecte en meme temps \chapter*.
 \newcommand\corps{%
   \cleardoublepage
   \setstretch{1.5}
@@ -336,17 +333,10 @@
   \setlength{\parskip}{0.5\baselineskip}
   \newpage
   \pagestyle{corps}
-  \pagenumbering{arabic}%
-  \setcounter{chapter}{0}%
-  \setcounter{section}{0}%
+  \pagenumbering{arabic}
+  \setcounter{chapter}{0}
+  \setcounter{section}{0}
   \setcounter{page}{1}
-  \renewcommand\chapter{
-    \if@openright\cleardoublepage\else\clearpage\fi
-    \thispagestyle{empty}
-    \global\@topnum\z@
-    \@afterindentfalse
-    \secdef\@chapter\@schapter
-  }
 }
 %
 %
@@ -401,32 +391,6 @@
     {\if@restonecol\onecolumn\else\clearpage\fi}
 \else
 \fi
-%
-%
-%
-% Modification de l'environnement thebibliography pour
-% parce que l'appel a \chapter* de la version originale
-% est incompatible avec la nouvelle version de \chapter*.
-\renewenvironment{thebibliography}[1]
-  {\singlespacing
-  \chapter*{\bibname}%
-   \list{\@biblabel{\@arabic\c@enumiv}}%
-     {\settowidth\labelwidth{\@biblabel{#1}}%
-      \leftmargin\labelwidth
-      \advance\leftmargin\labelsep
-      \@openbib@code
-      \usecounter{enumiv}%
-      \let\p@enumiv\@empty
-      \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-   \sloppy
-   \clubpenalty4000
-   \@clubpenalty \clubpenalty
-   \widowpenalty4000%
-   \sfcode`\.\@m}
-  {\def\@noitemerr
-    {\@latex@warning{Empty `thebibliography' environment}}%
-   \endlist}
-%
 %
 %
 %===================
