@@ -173,13 +173,11 @@
 \fi
 \if@hyperref
   \RequirePackage[%
-		plainpages=false, bookmarks, linktocpage, hypertexnames=false]{%
+		plainpages=false,bookmarks,linktocpage,hypertexnames=false]{%
     hyperref}[2002/09/12]
 \else
 \fi
 %
-%
-\RequirePackage{setspace} % Pour définir les interlignes
 %
 %==========
 % Commandes
