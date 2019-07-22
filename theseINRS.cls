@@ -71,6 +71,7 @@
 %   textcase   (standard)
 %   emptypage  (standard)
 %   nomencl    (standard)
+%   setspace   (standard)
 %   helvet     (standard)
 %
 % Ces packages utilisent d'autres fichiers.
@@ -156,6 +157,7 @@
 \RequirePackage[overload]{textcase}
 \RequirePackage{emptypage} % Pour enlever les numéros de page sur les pages blanches
 \RequirePackage{nomencl} % Pour générer une liste d'abréviations}
+\RequirePackage{setspace}
 \RequirePackage{helvet} % Pour utiliser une police sans empattements.
 \renewcommand{\familydefault}{\sfdefault} % Pour que la police prenne effet.
 \if@index
@@ -328,9 +330,9 @@
 % de pages a 1 en numerotation arabe.
 \newcommand\corps{%
   \cleardoublepage
-  \setstretch{1.5}
   \normalsize
   \setlength{\parskip}{0.5\baselineskip}
+  \onehalfspacing
   \newpage
   \pagestyle{corps}
   \pagenumbering{arabic}
