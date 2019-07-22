@@ -351,7 +351,8 @@
 \newcommand\pagesprelim{
   \singlespacing
   \pagenumbering{roman}%
-  \normalsize\setlength{\parskip}{0.5\baselineskip}}
+  \normalsize
+  \setlength{\parskip}{0.5\baselineskip}}
 %
 %
 %===============
