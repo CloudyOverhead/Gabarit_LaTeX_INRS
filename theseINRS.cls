@@ -71,6 +71,9 @@
 %   textcase   (standard)
 %   emptypage  (standard)
 %   nomencl    (standard)
+%   caption    (standard)
+%   subcaption (standard)
+%   ragged2e   (standard)
 %   setspace   (standard)
 %   helvet     (standard)
 %
@@ -156,7 +159,10 @@
 \RequirePackage{titletoc}
 \RequirePackage[overload]{textcase}
 \RequirePackage{emptypage} % Pour enlever les numéros de page sur les pages blanches
-\RequirePackage{nomencl} % Pour générer une liste d'abréviations}
+\RequirePackage{nomencl} % Pour générer une liste d'abréviations
+\RequirePackage{caption} % Pour définir le style des légendes de figures
+\RequirePackage{subcaption} % Pour générer des sous-figures (subfig is deprecated)
+\RequirePackage{ragged2e}
 \RequirePackage{setspace}
 \RequirePackage{helvet} % Pour utiliser une police sans empattements.
 \renewcommand{\familydefault}{\sfdefault} % Pour que la police prenne effet.
@@ -539,6 +545,52 @@
   {\scshape\tablenamedef\ \thecontentslabel\hspace{1em}}
   {\scshape}
   {\titlerule*[.25em]{.}\contentspage}
+%
+%
+%===============================
+% Format des tableaux et figures
+%-------------------------------
+% L'espacement des captions est censé être de `aboveskip=12pt,belowskip=6pt`
+% selon les normes en vigueur. Cela ne produit pas le résultats escompté sur
+% LaTeX. Le formattage réalisé ici consiste à séparer les éléments d'une figure
+% ou d'un tableau de 6pt et à séparer le tout du texte par 12pt.
+\DeclareCaptionLabelSeparator{spacecolon}{\ :\ }
+\captionsetup[figure]{
+  labelsep=spacecolon,
+  labelfont={normalfont,bf},
+  font={singlespacing,footnotesize,bf},
+  aboveskip=6pt,
+  belowskip=0pt,
+}
+\captionsetup[subfigure]{
+  font={singlespacing,footnotesize,bf},
+  aboveskip=6pt,
+  belowskip=0pt,
+}
+%
+\captionsetup[table]{
+  labelsep=spacecolon,
+  labelfont={normalfont,bf},
+  font={singlespacing,footnotesize,bf},
+  aboveskip=6pt,
+  belowskip=0pt,
+}
+\captionsetup[subtable]{
+  font={singlespacing,footnotesize,bf},
+  aboveskip=6pt,
+  belowskip=0pt,
+}
+%
+\newcommand*\tableenvname{table}
+\newcommand\legend[1]{
+  \bfseries\singlespacing\footnotesize\justify
+  \vspace{-6pt}
+  #1
+}
+%
+\setlength{\floatsep}{12pt}
+\setlength{\intextsep}{12pt}
+\setlength{\textfloatsep}{12pt}
 %
 %
 %============
