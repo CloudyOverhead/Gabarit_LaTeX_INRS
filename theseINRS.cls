@@ -496,6 +496,7 @@
 \newcommand{\tablenamedef}{Tableau}
 \newcommand{\figurenamedef}{Figure}
 \AtBeginDocument{\renewcommand{\tablename}{\tablenamedef}}
+\AtBeginDocument{\renewcommand{\figurename}{\figurenamedef}}
 %
 %
 \titlecontents{chapter}
