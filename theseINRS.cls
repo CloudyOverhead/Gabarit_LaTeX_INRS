@@ -71,6 +71,10 @@
 %   textcase   (standard)
 %   emptypage  (standard)
 %   nomencl    (standard)
+%   caption    (standard)
+%   subcaption (standard)
+%   ragged2e   (standard)
+%   setspace   (standard)
 %   helvet     (standard)
 %
 % Ces packages utilisent d'autres fichiers.
@@ -155,7 +159,11 @@
 \RequirePackage{titletoc}
 \RequirePackage[overload]{textcase}
 \RequirePackage{emptypage} % Pour enlever les numéros de page sur les pages blanches
-\RequirePackage{nomencl} % Pour générer une liste d'abréviations}
+\RequirePackage{nomencl} % Pour générer une liste d'abréviations
+\RequirePackage{caption} % Pour définir le style des légendes de figures
+\RequirePackage{subcaption} % Pour générer des sous-figures (subfig is deprecated)
+\RequirePackage{ragged2e}
+\RequirePackage{setspace}
 \RequirePackage{helvet} % Pour utiliser une police sans empattements.
 \renewcommand{\familydefault}{\sfdefault} % Pour que la police prenne effet.
 \if@index
@@ -312,46 +320,39 @@
 %
 \let\bibliographyprev\bibliography
 \renewcommand\bibliography[1]{
-  \singlespacing
-  \cleardoublepage
-  \phantomsection
-  \addcontentsline{toc}{chapter}{\bibname}
-  \bibliographystyle{bibliostyleINRS} % Utiliser le style bibliographique de l'INRS.
-  \bibliographyprev{#1}
+  {
+    \singlespacing
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\bibname}
+    \bibliographystyle{bibliostyleINRS} % Utiliser le style bibliographique de l'INRS.
+    \bibliographyprev{#1}
+  }
 }
 %
 %
 % Commande a utiliser apres les parties preliminaires qui sont
 % numerotees en chiffres romains. Reinitialise le compteur
 % de pages a 1 en numerotation arabe.
-% Modification de la commande \chapter pour qu'il n'y ait
-% pas de numero de page pour la premiere page d'un chapitre
-% (normes). Affecte en meme temps \chapter*.
 \newcommand\corps{%
   \cleardoublepage
-  \setstretch{1.5}
   \normalsize
   \setlength{\parskip}{0.5\baselineskip}
+  \onehalfspacing
   \newpage
   \pagestyle{corps}
-  \pagenumbering{arabic}%
-  \setcounter{chapter}{0}%
-  \setcounter{section}{0}%
+  \pagenumbering{arabic}
+  \setcounter{chapter}{0}
+  \setcounter{section}{0}
   \setcounter{page}{1}
-  \renewcommand\chapter{
-    \if@openright\cleardoublepage\else\clearpage\fi
-    \thispagestyle{empty}
-    \global\@topnum\z@
-    \@afterindentfalse
-    \secdef\@chapter\@schapter
-  }
 }
 %
 %
 \newcommand\pagesprelim{
   \singlespacing
   \pagenumbering{roman}%
-  \normalsize\setlength{\parskip}{0.5\baselineskip}}
+  \normalsize
+  \setlength{\parskip}{0.5\baselineskip}}
 %
 %
 %===============
@@ -401,32 +402,6 @@
 \fi
 %
 %
-%
-% Modification de l'environnement thebibliography pour
-% parce que l'appel a \chapter* de la version originale
-% est incompatible avec la nouvelle version de \chapter*.
-\renewenvironment{thebibliography}[1]
-  {\singlespacing
-  \chapter*{\bibname}%
-   \list{\@biblabel{\@arabic\c@enumiv}}%
-     {\settowidth\labelwidth{\@biblabel{#1}}%
-      \leftmargin\labelwidth
-      \advance\leftmargin\labelsep
-      \@openbib@code
-      \usecounter{enumiv}%
-      \let\p@enumiv\@empty
-      \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-   \sloppy
-   \clubpenalty4000
-   \@clubpenalty \clubpenalty
-   \widowpenalty4000%
-   \sfcode`\.\@m}
-  {\def\@noitemerr
-    {\@latex@warning{Empty `thebibliography' environment}}%
-   \endlist}
-%
-%
-%
 %===================
 % Headers et footers
 %-------------------
@@ -434,7 +409,13 @@
   \fancyhf{}
   \fancyfoot[C]{\thepage}
 }
-\patchcmd{\chapter}{\thispagestyle{plain}}{}{}{}
+%
+\patchcmd{\chapter}{
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \thispagestyle{plain}
+}{}{}{}
+%
+%
 %===============================
 % Definition du format des pages
 %-------------------------------
@@ -446,7 +427,8 @@
 % Interligne défini avec le package setspace (interligne 1.5)
 %
 %
-% Diminuer l'espacement entre les éléments flottants (figures, tableaux) et le texte
+% Modifier l'espacement maximal avant qu'une figure n'occupe sa propre page et
+% la quantité de figures par pages.
 \renewcommand\floatpagefraction{.9}
 \renewcommand\topfraction{.9}
 \renewcommand\bottomfraction{.9}
@@ -530,6 +512,7 @@
 \newcommand{\tablenamedef}{Tableau}
 \newcommand{\figurenamedef}{Figure}
 \AtBeginDocument{\renewcommand{\tablename}{\tablenamedef}}
+\AtBeginDocument{\renewcommand{\figurename}{\figurenamedef}}
 %
 %
 \titlecontents{chapter}
@@ -569,6 +552,52 @@
   {\scshape\tablenamedef\ \thecontentslabel\hspace{1em}}
   {\scshape}
   {\titlerule*[.25em]{.}\contentspage}
+%
+%
+%===============================
+% Format des tableaux et figures
+%-------------------------------
+% L'espacement des captions est censé être de `aboveskip=12pt,belowskip=6pt`
+% selon les normes en vigueur. Cela ne produit pas le résultats escompté sur
+% LaTeX. Le formattage réalisé ici consiste à séparer les éléments d'une figure
+% ou d'un tableau de 6pt et à séparer le tout du texte par 12pt.
+\DeclareCaptionLabelSeparator{spacecolon}{\ :\ }
+\captionsetup[figure]{
+  labelsep=spacecolon,
+  labelfont={normalfont,bf},
+  font={singlespacing,footnotesize,bf},
+  aboveskip=6pt,
+  belowskip=0pt,
+}
+\captionsetup[subfigure]{
+  font={singlespacing,footnotesize,bf},
+  aboveskip=6pt,
+  belowskip=0pt,
+}
+%
+\captionsetup[table]{
+  labelsep=spacecolon,
+  labelfont={normalfont,bf},
+  font={singlespacing,footnotesize,bf},
+  aboveskip=6pt,
+  belowskip=0pt,
+}
+\captionsetup[subtable]{
+  font={singlespacing,footnotesize,bf},
+  aboveskip=6pt,
+  belowskip=0pt,
+}
+%
+\newcommand*\tableenvname{table}
+\newcommand\legend[1]{
+  \bfseries\singlespacing\footnotesize\justify
+  \vspace{-6pt}
+  #1
+}
+%
+\setlength{\floatsep}{12pt}
+\setlength{\intextsep}{12pt}
+\setlength{\textfloatsep}{12pt}
 %
 %
 %============
