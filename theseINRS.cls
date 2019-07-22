@@ -312,12 +312,14 @@
 %
 \let\bibliographyprev\bibliography
 \renewcommand\bibliography[1]{
-  \singlespacing
-  \cleardoublepage
-  \phantomsection
-  \addcontentsline{toc}{chapter}{\bibname}
-  \bibliographystyle{bibliostyleINRS} % Utiliser le style bibliographique de l'INRS.
-  \bibliographyprev{#1}
+  {
+    \singlespacing
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\bibname}
+    \bibliographystyle{bibliostyleINRS} % Utiliser le style bibliographique de l'INRS.
+    \bibliographyprev{#1}
+  }
 }
 %
 %
