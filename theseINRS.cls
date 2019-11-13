@@ -271,7 +271,7 @@
   \if@restonecol\twocolumn\fi
 }
 %
-\renewcommand\listoffigures{%\cleardoublepage
+\renewcommand\listoffigures{%
   \phantomsection
   \renewcommand*\listfigurename{Liste des figures}
   \addcontentsline{toc}{chapter}{\listfigurename}
