@@ -107,7 +107,7 @@ FUNCTION{fr.editeurs}{      %% ", \'editeurs" au pluriel, ou " (\'editeurs)"...
 "\'editeurs" }
 
 FUNCTION{fr.et.al}{     %% " et~al."
-" \emph{et~al.}" }
+" et~al." }
 
 FUNCTION{fr.in}{        %% "Dans "
 "\emph{Dans} " }
