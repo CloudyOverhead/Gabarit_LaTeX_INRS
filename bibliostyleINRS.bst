@@ -920,7 +920,7 @@ FUNCTION {chop.word} { 's :=
 }
 
 %           There are three apalike cases: one person (Jones),
-%           two (Jones and de~Bruijn), and more (Jones et~al.).
+%           and more (Jones et~al.).
 %           This function is much like format.crossref.editors.
 %
 FUNCTION {format.lab.names}
@@ -931,7 +931,7 @@ FUNCTION {format.lab.names}
 { 's :=
   s #1 "{vv~}{ll}" format.name$
   s num.names$ duplicate$
-  #2 >
+  #1 >
     { pop$ fr.et.al * }
     { #2 <
         'skip$
