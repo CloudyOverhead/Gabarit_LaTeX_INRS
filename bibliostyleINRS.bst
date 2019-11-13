@@ -209,15 +209,15 @@ FUNCTION {output.nonnull} { 's :=
   output.state mid.sentence =
     { ", " * write$ }
     { output.state after.block =
-    { fr.add.period write$
-      newline$
-      "\newblock " write$
-    }
-    { output.state before.all =
-        'write$
-        { add.period$ " " * write$ }
-      if$
-    }
+      { fr.add.period write$
+        newline$
+        "\newblock " write$
+      }
+      { output.state before.all =
+          'write$
+          { fr.add.period " " * write$ }
+        if$
+      }
       if$
       mid.sentence 'output.state :=
     }
