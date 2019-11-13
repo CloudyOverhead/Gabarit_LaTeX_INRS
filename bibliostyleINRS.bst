@@ -98,7 +98,7 @@ ENTRY
 
 
 FUNCTION{fr.and}{       %% le "et" entre les deux derniers auteurs
-" \& " }
+", " }
 
 FUNCTION{fr.editeur}{       %% ", \'editeur" au singulier, ou " (\'editeur)"...
 ", \'editeur" }
