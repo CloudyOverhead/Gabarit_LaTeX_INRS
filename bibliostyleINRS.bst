@@ -180,12 +180,13 @@ MACRO {jan} {"janvier"} MACRO {feb} {"f\'evrier"} MACRO {mar}
 %% Définition de variables de type entier et de la fonction d'initialisation
 
 INTEGERS { output.state before.all mid.sentence after.sentence
-after.block after.authors }
+after.block after.year after.authors }
 
 FUNCTION {init.state.consts} { #0 'before.all :=
   #1 'mid.sentence :=
   #2 'after.sentence :=
   #3 'after.block :=
+  #0 'after.year :=
   #0 'after.authors :=
 }
 
@@ -197,13 +198,20 @@ STRINGS { s t }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Fonctions utilitaires
 
-FUNCTION{ fr.add.period }{ after.authors
-  { fr.ponctuation.apres.auteurs empty$
-      { add.period$ }
-      { fr.ponctuation.apres.auteurs * #0 'after.authors := }
-    if$}
- { add.period$ }
-if$ }
+FUNCTION{ fr.add.period }{
+  after.authors
+    { fr.ponctuation.apres.auteurs empty$
+        { add.period$ }
+        { fr.ponctuation.apres.auteurs * #0 'after.authors := }
+      if$}
+    {
+      after.year
+        { #0 'after.year := }
+        { add.period$ }
+      if$
+    }
+  if$
+}
 
 FUNCTION {output.nonnull} { 's :=
   output.state mid.sentence =
@@ -245,7 +253,7 @@ FUNCTION {output.year.check} { year empty$
     { "empty year in " cite$ * warning$ }
     { write$
       " (" year * extra.label * ")" *
-      mid.sentence 'output.state :=
+      #1 'after.year :=
     }
   if$
 }
